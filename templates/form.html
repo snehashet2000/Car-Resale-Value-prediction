@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Resale Value Prediction</title>
+    <link rel="stylesheet" type ="text/css" href="{{ url_for('static', filename='css/styles_form.css') }}" />
+    <!-- Bootstrap -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <div class="heading_div">
+      <h1 class="heading">Get The Accurate Resale Value Of Your Car!!</h1>
+    </div>
+    <h3 class="heading-sub">Please fill the following details of your car</h3>
+    <div class="wrapper">
+      <div><form action="{{ url_for('prediction') }}" method="post" id="form">
+        <!-- Registration Year -->
+        <div class="mb-3">
+          <label for="registrationYear" class="form-label"
+            >Registration Year</label
+          >
+          <input placeholder="YYYY" type="number" class="form-control" name="registrationYear" id="registrationYear" required />
+        </div>
+
+        <!-- Registration Month -->
+        <div class="mb-3">
+          <label for="registrationMonth" class="form-label"
+            >Registration Month</label
+          >
+          <input placeholder="(0-12)" type="number" class="form-control" name="registrationMonth" id="registrationMonth" required />
+        </div>
+
+        <!-- Power Of Car In PS -->
+        <div class="mb-3">
+          <label for="powerOfCarInPS" class="form-label"
+            >Power Of Car In PS</label
+          >
+          <input placeholder="234" type="number" class="form-control" name="powerOfCarInPS" id="powerOfCarInPS" required />
+        </div>
+
+        <!-- Kilometers The Car As Driven -->
+        <div class="mb-3">
+          <label  for="KmTheCarAsDriven" class="form-label"
+            >Kilometers The Car As Driven</label
+          >
+          <input placeholder="38593" type="number" class="form-control"  name="KmTheCarAsDriven" id="KmTheCarAsDriven" required />
+        </div>
+
+        <!-- Gear Box Type -->
+        <h6 class="form-check-inline">Gear Box Type</h6>
+        <div class="form-check form-check-inline mb-3">
+          <input
+            class="form-check-input"
+            type="radio"
+            name="gearbox"
+            id="inlineRadio1"
+            value="manuell"
+            required
+          />
+          <label class="form-check-label" for="inlineRadio1">Manual</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input
+            class="form-check-input"
+            type="radio"
+            name="gearbox"
+            id="inlineRadio2"
+            value="automatik"
+            required
+          />
+          <label class="form-check-label" for="inlineRadio2">Automatic</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input
+            class="form-check-input"
+            type="radio"
+            name="gearbox"
+            id="inlineRadio2"
+            value=""
+            required
+          />
+          <label class="form-check-label" for="gearbox"
+            >Not declared</label
+          >
+        </div>
+        </div>
+      <div class="second-div">
+         <!-- Model Type -->
+
+        <div class="mb-3">
+          <label for="modelType" class="form-label">Model</label>
+          <input placeholder="2_reihe" type="text" class="form-control" name="modelType" id="modelType" required />
+        </div>
+
+        <!-- Brand Of The Car -->
+
+        <div class="mb-3">
+          <label for="brandOfTheCar" class="form-label">Brand Of The Car</label>
+          <input placeholder="jaguar" type="text" class="form-control" name="brandOfTheCar" id="brandOfTheCar" required />
+        </div>
+
+        <!-- Fuel Type Of The Car -->
+
+        <div class="mb-3">
+          <label for="fuelTypeOfTheCar" class="form-label"
+            >Fuel Type Of The Car</label
+          >
+          <input placeholder="diesel / benzin / lpg" type="text" class="form-control" name="fuelTypeOfTheCar" id="fuelTypeOfTheCar" required />
+        </div>
+
+        <!-- Vehicle Type -->
+
+        <div class="mb-3">
+          <label for="vehicleType" class="form-label">Vehicle Type</label>
+          <input placeholder="bus" type="text" class="form-control" name="vehicleType" id="vehicleType" required />
+        </div>
+
+        <!-- Car is damaged -->
+        <h6 class="form-check-inline">Car Is Damaged</h6>
+        <div class="form-check form-check-inline mb-3">
+          <input
+            class="form-check-input"
+            type="radio"
+            name="damage"
+            id="inlineRadio1"
+            value="ja"
+            required
+          />
+          <label class="form-check-label" for="inlineRadio1">Yes</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input
+            class="form-check-input"
+            type="radio"
+            name="damage"
+            id="inlineRadio2"
+            value="nein"
+            required
+          />
+          <label class="form-check-label" for="inlineRadio2">No</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input
+            class="form-check-input"
+            type="radio"
+            name="damage"
+            id="inlineRadio2"
+            value=""
+            required
+          />
+          <label class="form-check-label" for="damage"
+            >Not declared</label
+          >
+        </div>
+      </form>
+      </div>
+    </div>
+    <div class="btn-wrapper">
+    <button class="btn button btn-dark" type="submit" form="form" value="Submit">Predict</button>
+    </div>
+    <div>
+      <h3 class="output">Predicted Price: {{ pred_result }}</h3>
+      <!-- <h3 class="output">{{ pred_result }}</h3> -->
+    </div>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

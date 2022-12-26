@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type ="text/css" href="{{ url_for('static', filename='css/styles.css') }}" />
+    <!-- Bootstrap -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
+      crossorigin="anonymous"
+    />
+    <title>Resale Value Prediction</title>
+  </head>
+  <body>
+    <div class="heading_div">
+      <h1 class="heading">Get The Accurate Resale Value Of Your Car!!</h1>
+    </div>
+    <div class="wrapper">
+      <img class="image" src="{{ url_for('static', filename='images/CarMain.jpg') }}" alt="carImg" />
+      <div class="rightContainer">
+        <h1 class="para">
+          It is expected that sales of reconditioned used automobiles would rise
+          in light of the current challenging economic climate. Leasing cars
+          rather than owning them entirely is a prevalent practise in the
+          majority of the world's nations. A lease is a legally binding
+          agreement between a buyer and a seller wherein the buyer is required
+          to pay the seller or financier in set payments over a certain period
+          of time, usually months or years. After the lease term is up, the
+          buyer will have the option of purchasing the vehicle for its residual
+          value, or anticipated resale value. Therefore, the ability for sellers
+          and financiers to accurately anticipate the residual value of
+          automobiles is of economic significance.
+        </h1>
+        <a href="{{ url_for('prediction_page') }}">
+          <button type="button" class="btn button btn-dark">
+            WANT TO KNOW THE RESALE VALUE OF YOUR CAR??
+          </button></a
+        >
+      </div>
+    </div>
+    <!-- Bootstrap -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

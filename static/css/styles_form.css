@@ -1,0 +1,38 @@
+body {
+  background-color: rgb(193 193 193) !important;
+}
+.heading_div {
+  background-color: rgb(56, 56, 56);
+  height: 70px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.heading {
+  font-size: 30px;
+  color: white;
+}
+.wrapper {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.heading-sub {
+  margin: 50px 0 60px;
+  text-align: center;
+}
+.second-div {
+  width: 33.5%;
+}
+.button {
+  text-align: center;
+}
+.btn-wrapper {
+  margin-top: 50px;
+  display: flex;
+  justify-content: center;
+}
+.output {
+  margin-top: 30px;
+  text-align: center;
+}
